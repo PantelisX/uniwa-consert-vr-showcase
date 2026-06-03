@@ -128,43 +128,43 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background border-t border-border">
+      <footer className="bg-white border-t border-border text-foreground">
         <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-3">
           <div>
-            <img src={logo} alt="CONSERT" className="h-14 w-auto" width={56} height={56} />
-            <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-              Computational Sciences, Engineering & Research Technologies Laboratory — University of West Attica.
+            <img src={logo} alt="CONSERT" className="h-20 w-auto" />
+            <p className="mt-6 text-sm text-muted-foreground max-w-xs">
+              <span className="font-semibold"><span className="text-primary">CO</span>mputer Networks &amp; <span className="text-primary">SE</span>rvices <span className="text-primary">R</span>esearch labora<span className="text-primary">T</span>ory</span>
             </p>
+            <p className="mt-6 text-sm text-muted-foreground">© CoNSeRT {new Date().getFullYear()}</p>
           </div>
           <div>
-            <div className="h-1 w-10 bg-primary mb-3" />
+            <div className="h-0.5 w-10 bg-primary mb-3" />
             <h4 className="text-base font-bold text-foreground mb-4">Address</h4>
-            <address className="not-italic text-sm text-muted-foreground leading-relaxed">
-              <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                <div>
-                  University of West Attica<br />
-                  Ancient Olive Grove Campus<br />
-                  Ag. Spyridonos St., 12243<br />
-                  Egaleo, Athens, Greece
-                </div>
-              </div>
+            <address className="not-italic text-sm text-muted-foreground leading-relaxed space-y-3">
+              <p>University Campus II (Ancient Olive Grove)</p>
+              <p>Thivon 250 &amp; Petrou Ralli str, Egaleo, GR 12241<br />ZB 109, Building Z (in Greek → Ktirio Zeta)</p>
+              <p>
+                (+30) 210.538.1514<br />
+                (+30) 210.538.1549<br />
+                (+30) 210.538.1637
+              </p>
             </address>
           </div>
           <div>
-            <div className="h-1 w-10 bg-primary mb-3" />
+            <div className="h-0.5 w-10 bg-primary mb-3" />
             <h4 className="text-base font-bold text-foreground mb-4">Social</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"><Facebook className="h-4 w-4" /> Facebook</a></li>
-              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"><Linkedin className="h-4 w-4" /> LinkedIn</a></li>
-              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"><Twitter className="h-4 w-4" /> Twitter / X</a></li>
+              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> Facebook</a></li>
+              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> LinkedIn</a></li>
+              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> YouTube</a></li>
+              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> X (former Twitter)</a></li>
             </ul>
           </div>
         </div>
         <div className="border-t border-border">
-          <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-muted-foreground flex flex-col md:flex-row justify-between gap-2">
-            <span>© {new Date().getFullYear()} CONSERT Laboratory — University of West Attica.</span>
-            <span>All rights reserved.</span>
+          <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-muted-foreground flex gap-6">
+            <a href="#" className="hover:text-foreground transition-colors">Terms of Use</a>
+            <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
           </div>
         </div>
       </footer>
