@@ -30,13 +30,29 @@ export const Route = createFileRoute("/")({
 
 const navItems = ["About", "RnD", "Initiatives", "People", "News & Events", "Opportunities"];
 
-const equipment = [
+type Equipment = {
+  name: string;
+  img: string;
+  desc: string;
+  gallery?: { images: string[]; video: string };
+};
+
+const APPLE_HERO = "https://www.apple.com/v/apple-vision-pro/k/images/overview/hero/hero__cvgr5aj1ttsi_large.jpg";
+const APPLE_DUAL_KNIT = "https://www.apple.com/v/apple-vision-pro/k/images/overview/design/drawer/dual_knit_band__cuhpalc1t9ea_large.jpg";
+const APPLE_VIDEO = "https://www.apple.com/105/media/us/apple-vision-pro/2026/9251fc5e-bf57-4fae-8994-b06bbd3bb104/anim/foundation/large.mp4";
+
+const equipment: Equipment[] = [
   { name: "Xreal Ultra 2", img: xrealUltra, desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications." },
   { name: "Even Realities G1", img: evenG1, desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies." },
   { name: "Xreal Beam Pro", img: xrealBeam, desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller." },
   { name: "Vuzix Model 494", img: vuzix, desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection." },
   { name: "Meta Quest 3", img: metaQuest, desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping." },
-  { name: "Apple Vision Pro", img: visionPro, desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research." },
+  {
+    name: "Apple Vision Pro",
+    img: visionPro,
+    desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.",
+    gallery: { images: [APPLE_HERO, APPLE_DUAL_KNIT], video: APPLE_VIDEO },
+  },
 ];
 
 function Index() {
