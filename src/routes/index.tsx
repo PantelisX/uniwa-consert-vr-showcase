@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronDown, ChevronRight, Search, Facebook, Linkedin, Twitter, MapPin } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, ChevronRight, Search, Facebook, Linkedin, Twitter, MapPin, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/consert-logo.png.asset.json";
 const logo = logoAsset.url;
 import heroBg from "@/assets/hero-network.jpg";
