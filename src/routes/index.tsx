@@ -31,7 +31,7 @@ const navItems = ["About", "RnD", "Initiatives", "People", "News & Events", "Opp
 
 const equipment = [
   { name: "Xreal Ultra 2", img: xrealUltra, desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications." },
-  { name: "Even Realities G1", img: evenG1, desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies.", badge: "Quantity: 2" },
+  { name: "Even Realities G1", img: evenG1, desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies." },
   { name: "Xreal Beam Pro", img: xrealBeam, desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller." },
   { name: "Vuzix Model 494", img: vuzix, desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection." },
   { name: "Meta Quest 3", img: metaQuest, desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping." },
