@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronDown, ChevronRight, Search, Facebook, Linkedin, Twitter, MapPin } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, ChevronRight, Search, Facebook, Linkedin, Twitter, MapPin, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/consert-logo.png.asset.json";
 const logo = logoAsset.url;
 import heroBg from "@/assets/hero-network.jpg";
@@ -39,23 +40,51 @@ const equipment = [
 ];
 
 function Index() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="w-full px-6 h-20 flex items-center justify-between">
+        <div className="w-full px-6 md:px-10 h-28 md:h-32 flex items-center justify-between">
           <a href="/" className="flex items-center">
-            <img src={logo} alt="CONSERT Laboratory" className="h-14 w-auto" />
+            <img src={logo} alt="CONSERT Laboratory" className="h-20 md:h-24 w-auto" />
           </a>
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
-              <a key={item} href="#" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground inline-flex items-center gap-1 transition-colors">
+              <a key={item} href="#" className="px-4 py-2 text-base font-medium text-foreground/80 hover:text-foreground inline-flex items-center gap-1 transition-colors">
                 {item}
-                <ChevronDown className="h-3.5 w-3.5 opacity-60" />
+                <ChevronDown className="h-4 w-4 opacity-60" />
               </a>
             ))}
           </nav>
+          <button
+            type="button"
+            onClick={() => setMobileOpen((o) => !o)}
+            className="lg:hidden inline-flex items-center justify-center h-12 w-12 rounded-md text-foreground hover:bg-secondary transition-colors"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+          </button>
         </div>
+        {mobileOpen && (
+          <nav className="lg:hidden border-t border-border bg-background">
+            <ul className="px-6 py-4 flex flex-col">
+              {navItems.map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-between py-3 text-base font-medium text-foreground/90 hover:text-primary border-b border-border/60 last:border-0 transition-colors"
+                  >
+                    {item}
+                    <ChevronDown className="h-4 w-4 opacity-60" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </header>
 
       {/* Hero */}
