@@ -182,10 +182,30 @@ function Index() {
             <div className="h-0.5 w-10 bg-primary mb-3" />
             <h4 className="text-base font-bold text-foreground mb-4">Social</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> Facebook</a></li>
-              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> LinkedIn</a></li>
-              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> YouTube</a></li>
-              <li><a href="#" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"><ChevronRight className="h-3.5 w-3.5 text-primary" /> X (former Twitter)</a></li>
+              <li>
+                <a href="https://www.facebook.com/CoNSeRT.UNIWA" target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <ChevronRight className="h-3.5 w-3.5 mt-1 shrink-0 text-primary" />
+                  <span>COmputer Networks &amp; SErvices Research Laboratory - UNIWA | Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/consert-uniwa/" target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <ChevronRight className="h-3.5 w-3.5 mt-1 shrink-0 text-primary" />
+                  <span>COmputer Networks &amp; SErvices Research laboraTory: Επισκόπηση | LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@CoNSeRTUNIWA" target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <ChevronRight className="h-3.5 w-3.5 mt-1 shrink-0 text-primary" />
+                  <span>(360) CoNSeRT UNIWA - YouTube</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/consertlab" target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-2 text-muted-foreground hover:text-primary transition-colors">
+                  <ChevronRight className="h-3.5 w-3.5 mt-1 shrink-0 text-primary" />
+                  <span>consertlab_uniwa (@consertlab) / X</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
