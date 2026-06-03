@@ -5,11 +5,23 @@ import logoAsset from "@/assets/consert-logo.png.asset.json";
 const logo = logoAsset.url;
 import heroBg from "@/assets/hero-network.jpg";
 import xrealUltra from "@/assets/xreal-ultra-2.jpg";
+import xrealUltraAlt1 from "@/assets/xreal-ultra-2-alt1.jpg";
+import xrealUltraAlt2 from "@/assets/xreal-ultra-2-alt2.jpg";
 import evenG1 from "@/assets/even-g1.jpg";
+import evenG1Alt1 from "@/assets/even-g1-alt1.jpg";
+import evenG1Alt2 from "@/assets/even-g1-alt2.jpg";
 import xrealBeam from "@/assets/xreal-beam-pro.jpg";
+import xrealBeamAlt1 from "@/assets/xreal-beam-alt1.jpg";
+import xrealBeamAlt2 from "@/assets/xreal-beam-alt2.jpg";
 import vuzix from "@/assets/vuzix-494.jpg";
+import vuzixAlt1 from "@/assets/vuzix-alt1.jpg";
+import vuzixAlt2 from "@/assets/vuzix-alt2.jpg";
 import metaQuest from "@/assets/meta-quest-3.jpg";
+import metaQuestAlt1 from "@/assets/meta-quest-alt1.jpg";
+import metaQuestAlt2 from "@/assets/meta-quest-alt2.jpg";
 import visionPro from "@/assets/apple-vision-pro.jpg";
+import visionProAlt1 from "@/assets/vision-pro-alt1.jpg";
+import visionProAlt2 from "@/assets/vision-pro-alt2.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,27 +44,20 @@ const navItems = ["About", "RnD", "Initiatives", "People", "News & Events", "Opp
 
 type Equipment = {
   name: string;
-  img: string;
+  images: string[];
   desc: string;
-  gallery?: { images: string[]; video: string };
+  video?: string;
 };
 
-const APPLE_HERO = "https://www.apple.com/v/apple-vision-pro/k/images/overview/hero/hero__cvgr5aj1ttsi_large.jpg";
-const APPLE_DUAL_KNIT = "https://www.apple.com/v/apple-vision-pro/k/images/overview/design/drawer/dual_knit_band__cuhpalc1t9ea_large.jpg";
 const APPLE_VIDEO = "https://www.apple.com/105/media/us/apple-vision-pro/2026/9251fc5e-bf57-4fae-8994-b06bbd3bb104/anim/foundation/large.mp4";
 
 const equipment: Equipment[] = [
-  { name: "Xreal Ultra 2", img: xrealUltra, desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications." },
-  { name: "Even Realities G1", img: evenG1, desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies." },
-  { name: "Xreal Beam Pro", img: xrealBeam, desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller." },
-  { name: "Vuzix Model 494", img: vuzix, desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection." },
-  { name: "Meta Quest 3", img: metaQuest, desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping." },
-  {
-    name: "Apple Vision Pro",
-    img: visionPro,
-    desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.",
-    gallery: { images: [APPLE_HERO, APPLE_DUAL_KNIT], video: APPLE_VIDEO },
-  },
+  { name: "Xreal Ultra 2", images: [xrealUltra, xrealUltraAlt1, xrealUltraAlt2], desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications." },
+  { name: "Even Realities G1", images: [evenG1, evenG1Alt1, evenG1Alt2], desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies." },
+  { name: "Xreal Beam Pro", images: [xrealBeam, xrealBeamAlt1, xrealBeamAlt2], desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller." },
+  { name: "Vuzix Model 494", images: [vuzix, vuzixAlt1, vuzixAlt2], desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection." },
+  { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping." },
+  { name: "Apple Vision Pro", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
 ];
 
 function Index() {
