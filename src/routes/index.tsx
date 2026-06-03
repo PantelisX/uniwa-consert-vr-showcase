@@ -30,13 +30,29 @@ export const Route = createFileRoute("/")({
 
 const navItems = ["About", "RnD", "Initiatives", "People", "News & Events", "Opportunities"];
 
-const equipment = [
+type Equipment = {
+  name: string;
+  img: string;
+  desc: string;
+  gallery?: { images: string[]; video: string };
+};
+
+const APPLE_HERO = "https://www.apple.com/v/apple-vision-pro/k/images/overview/hero/hero__cvgr5aj1ttsi_large.jpg";
+const APPLE_DUAL_KNIT = "https://www.apple.com/v/apple-vision-pro/k/images/overview/design/drawer/dual_knit_band__cuhpalc1t9ea_large.jpg";
+const APPLE_VIDEO = "https://www.apple.com/105/media/us/apple-vision-pro/2026/9251fc5e-bf57-4fae-8994-b06bbd3bb104/anim/foundation/large.mp4";
+
+const equipment: Equipment[] = [
   { name: "Xreal Ultra 2", img: xrealUltra, desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications." },
   { name: "Even Realities G1", img: evenG1, desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies." },
   { name: "Xreal Beam Pro", img: xrealBeam, desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller." },
   { name: "Vuzix Model 494", img: vuzix, desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection." },
   { name: "Meta Quest 3", img: metaQuest, desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping." },
-  { name: "Apple Vision Pro", img: visionPro, desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research." },
+  {
+    name: "Apple Vision Pro",
+    img: visionPro,
+    desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.",
+    gallery: { images: [APPLE_HERO, APPLE_DUAL_KNIT], video: APPLE_VIDEO },
+  },
 ];
 
 function Index() {
@@ -147,6 +163,36 @@ function Index() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-foreground">{item.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                  {item.gallery && (
+                    <div className="mt-5 grid grid-cols-3 gap-2">
+                      {item.gallery.images.map((src, i) => (
+                        <a
+                          key={src}
+                          href={src}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block aspect-video rounded-md overflow-hidden bg-secondary border border-border hover:border-primary transition-colors"
+                        >
+                          <img
+                            src={src}
+                            alt={`${item.name} view ${i + 1}`}
+                            loading="lazy"
+                            className="h-full w-full object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        </a>
+                      ))}
+                      <video
+                        src={item.gallery.video}
+                        muted
+                        loop
+                        playsInline
+                        autoPlay
+                        controls
+                        className="aspect-video rounded-md overflow-hidden bg-secondary border border-border object-cover w-full"
+                      />
+                    </div>
+                  )}
                   <div className="mt-5 h-0.5 w-8 bg-primary transition-all duration-300 group-hover:w-16" />
                 </div>
               </article>
