@@ -216,3 +216,64 @@ function Index() {
     </div>
   );
 }
+
+function EquipmentCard({ item }: { item: Equipment }) {
+  const [active, setActive] = useState(0);
+  const thumbs = item.images.slice(1);
+  return (
+    <article
+      className="group bg-card rounded-xl overflow-hidden border border-border transition-all duration-300 hover:-translate-y-1"
+      style={{ boxShadow: "var(--shadow-card)" }}
+    >
+      <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+        <img
+          src={item.images[active]}
+          alt={item.name}
+          loading="lazy"
+          width={800}
+          height={600}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-foreground">{item.name}</h3>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+        {thumbs.length > 0 && (
+          <div className="mt-5 grid grid-cols-3 gap-2">
+            {item.images.map((src, i) => (
+              <button
+                key={src}
+                type="button"
+                onClick={() => setActive(i)}
+                aria-label={`Show ${item.name} view ${i + 1}`}
+                aria-pressed={active === i}
+                className={`block aspect-video rounded-md overflow-hidden bg-secondary border transition-colors ${
+                  active === i ? "border-primary ring-2 ring-primary/40" : "border-border hover:border-primary"
+                }`}
+              >
+                <img
+                  src={src}
+                  alt={`${item.name} view ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+        {item.video && (
+          <video
+            src={item.video}
+            muted
+            loop
+            playsInline
+            autoPlay
+            controls
+            className="mt-3 aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
+          />
+        )}
+        <div className="mt-5 h-0.5 w-8 bg-primary transition-all duration-300 group-hover:w-16" />
+      </div>
+    </article>
+  );
+}
