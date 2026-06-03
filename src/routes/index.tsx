@@ -115,11 +115,6 @@ function Index() {
                     height={600}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {item.badge && (
-                    <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full shadow-md">
-                      {item.badge}
-                    </span>
-                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-foreground">{item.name}</h3>
