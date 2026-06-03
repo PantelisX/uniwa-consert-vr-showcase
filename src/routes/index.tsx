@@ -63,14 +63,13 @@ function Index() {
         <img src={heroBg} alt="" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero-overlay)" }} />
         <div className="relative mx-auto max-w-5xl px-6 py-28 md:py-40 text-center text-white">
-          <span className="inline-block text-xs tracking-[0.3em] uppercase text-primary font-semibold mb-6">VR / AR Research</span>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Exploring the Future with<br />Immersive Technologies
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+            We are a multi-disciplinary laboratory<br />committed to ICT Research &amp; Innovation
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
-            Discover the cutting-edge VR/AR equipment of the multi-disciplinary CONSERT Laboratory.
+          <p className="mt-10 text-2xl md:text-3xl font-semibold text-white">
+            Check our work on
           </p>
-          <form className="mt-12 max-w-2xl mx-auto flex items-stretch bg-white rounded-md overflow-hidden shadow-2xl" onSubmit={(e) => e.preventDefault()}>
+          <form className="mt-8 max-w-3xl mx-auto flex items-stretch bg-white rounded-sm overflow-hidden shadow-2xl" onSubmit={(e) => e.preventDefault()}>
             <input
               type="search"
               placeholder="Search equipment, research, publications…"
