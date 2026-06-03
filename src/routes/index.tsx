@@ -150,57 +150,7 @@ function Index() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {equipment.map((item) => (
-              <article
-                key={item.name}
-                className="group bg-card rounded-xl overflow-hidden border border-border transition-all duration-300 hover:-translate-y-1"
-                style={{ boxShadow: "var(--shadow-card)" }}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
-                  <img
-                    src={item.img}
-                    alt={item.name}
-                    loading="lazy"
-                    width={800}
-                    height={600}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground">{item.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-                  {item.gallery && (
-                    <div className="mt-5 grid grid-cols-3 gap-2">
-                      {item.gallery.images.map((src, i) => (
-                        <a
-                          key={src}
-                          href={src}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block aspect-video rounded-md overflow-hidden bg-secondary border border-border hover:border-primary transition-colors"
-                        >
-                          <img
-                            src={src}
-                            alt={`${item.name} view ${i + 1}`}
-                            loading="lazy"
-                            className="h-full w-full object-cover"
-                            referrerPolicy="no-referrer"
-                          />
-                        </a>
-                      ))}
-                      <video
-                        src={item.gallery.video}
-                        muted
-                        loop
-                        playsInline
-                        autoPlay
-                        controls
-                        className="aspect-video rounded-md overflow-hidden bg-secondary border border-border object-cover w-full"
-                      />
-                    </div>
-                  )}
-                  <div className="mt-5 h-0.5 w-8 bg-primary transition-all duration-300 group-hover:w-16" />
-                </div>
-              </article>
+              <EquipmentCard key={item.name} item={item} />
             ))}
           </div>
         </div>
