@@ -66,9 +66,9 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="relative z-50 bg-background border-b border-border">
-        <div className="w-full px-6 md:px-10 h-28 md:h-36 flex items-center justify-between">
-          <a href="/" className="flex items-center">
-            <img src={logo} alt="CONSERT Laboratory" className="h-36 md:h-48 w-auto" />
+        <div className="w-full h-32 md:h-44 flex items-center justify-between pr-6 md:pr-10">
+          <a href="/" className="flex items-center shrink-0">
+            <img src={logo} alt="CONSERT Laboratory" className="h-48 md:h-64 w-auto" />
           </a>
           <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
