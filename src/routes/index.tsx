@@ -66,8 +66,8 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="relative z-50 bg-background border-b border-border">
-        <div className="w-full h-32 md:h-44 flex items-center justify-between pr-6 md:pr-10">
-          <a href="/" className="flex items-center shrink-0">
+        <div className="relative w-full h-32 md:h-44 flex items-center justify-end pr-6 md:pr-10">
+          <a href="/" className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center shrink-0">
             <img src={logo} alt="CONSERT Laboratory" className="h-48 md:h-64 w-auto" />
           </a>
           <nav className="hidden lg:flex items-center gap-2">
