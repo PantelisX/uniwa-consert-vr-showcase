@@ -262,15 +262,26 @@ function EquipmentCard({ item }: { item: Equipment }) {
           </div>
         )}
         {item.video && (
-          <video
-            src={item.video}
-            muted
-            loop
-            playsInline
-            autoPlay
-            controls
-            className="mt-3 aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
-          />
+          item.video.includes("youtube.com/embed") ? (
+            <iframe
+              src={item.video}
+              title={`${item.name} video`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="mt-3 aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border"
+            />
+          ) : (
+            <video
+              src={item.video}
+              muted
+              loop
+              playsInline
+              autoPlay
+              controls
+              className="mt-3 aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
+            />
+          )
         )}
         <div className="mt-5 h-0.5 w-8 bg-primary transition-all duration-300 group-hover:w-16" />
       </div>
