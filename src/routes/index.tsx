@@ -52,11 +52,11 @@ type Equipment = {
 const APPLE_VIDEO = "https://www.apple.com/105/media/us/apple-vision-pro/2026/9251fc5e-bf57-4fae-8994-b06bbd3bb104/anim/foundation/large.mp4";
 
 const equipment: Equipment[] = [
-  { name: "Xreal Ultra 2", images: [xrealUltra, xrealUltraAlt1, xrealUltraAlt2], desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications." },
-  { name: "Even Realities G1", images: [evenG1, evenG1Alt1, evenG1Alt2], desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies." },
-  { name: "Xreal Beam Pro", images: [xrealBeam, xrealBeamAlt1, xrealBeamAlt2], desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller." },
-  { name: "Vuzix Model 494", images: [vuzix, vuzixAlt1, vuzixAlt2], desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection." },
-  { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping." },
+  { name: "Xreal Ultra 2", images: [xrealUltra, xrealUltraAlt1, xrealUltraAlt2], desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications.", video: "https://www.youtube.com/embed/ZIc1w1bHhd8" },
+  { name: "Even Realities G1", images: [evenG1, evenG1Alt1, evenG1Alt2], desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies.", video: "https://www.youtube.com/embed/tBH7mczkIJY" },
+  { name: "Xreal Beam Pro", images: [xrealBeam, xrealBeamAlt1, xrealBeamAlt2], desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller.", video: "https://www.youtube.com/embed/M0VTeUxgFag" },
+  { name: "Vuzix Model 494", images: [vuzix, vuzixAlt1, vuzixAlt2], desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection.", video: "https://www.youtube.com/embed/Nm7x-oJ-FrA" },
+  { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping.", video: "https://www.youtube.com/embed/5AKl_cEB26c" },
   { name: "Apple Vision Pro", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
 ];
 
@@ -66,9 +66,9 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="relative z-50 bg-background border-b border-border">
-        <div className="w-full px-6 md:px-10 h-28 md:h-36 flex items-center justify-between">
-          <a href="/" className="flex items-center">
-            <img src={logo} alt="CONSERT Laboratory" className="h-36 md:h-48 w-auto" />
+        <div className="w-full h-32 md:h-44 flex items-center justify-between pr-6 md:pr-10">
+          <a href="/" className="flex items-center shrink-0">
+            <img src={logo} alt="CONSERT Laboratory" className="h-48 md:h-64 w-auto" />
           </a>
           <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
@@ -262,15 +262,26 @@ function EquipmentCard({ item }: { item: Equipment }) {
           </div>
         )}
         {item.video && (
-          <video
-            src={item.video}
-            muted
-            loop
-            playsInline
-            autoPlay
-            controls
-            className="mt-3 aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
-          />
+          item.video.includes("youtube.com/embed") ? (
+            <iframe
+              src={item.video}
+              title={`${item.name} video`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="mt-3 aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border"
+            />
+          ) : (
+            <video
+              src={item.video}
+              muted
+              loop
+              playsInline
+              autoPlay
+              controls
+              className="mt-3 aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
+            />
+          )
         )}
         <div className="mt-5 h-0.5 w-8 bg-primary transition-all duration-300 group-hover:w-16" />
       </div>
