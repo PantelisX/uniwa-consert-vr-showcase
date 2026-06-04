@@ -1,27 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChevronDown, ChevronRight, Search, Facebook, Linkedin, Twitter, MapPin, Menu, X } from "lucide-react";
-import logoAsset from "@/assets/consert-logo.png.asset.json";
-const logo = logoAsset.url;
+import logoAsset from "@/assets/consert-logo.png";
 import heroBg from "@/assets/hero-network.jpg";
-import xrealUltra from "@/assets/xreal-ultra-2.jpg";
-import xrealUltraAlt1 from "@/assets/xreal-ultra-2-alt1.jpg";
-import xrealUltraAlt2 from "@/assets/xreal-ultra-2-alt2.jpg";
-import evenG1 from "@/assets/even-g1.jpg";
-import evenG1Alt1 from "@/assets/even-g1-alt1.jpg";
-import evenG1Alt2 from "@/assets/even-g1-alt2.jpg";
-import xrealBeam from "@/assets/xreal-beam-pro.jpg";
-import xrealBeamAlt1 from "@/assets/xreal-beam-alt1.jpg";
-import xrealBeamAlt2 from "@/assets/xreal-beam-alt2.jpg";
-import vuzix from "@/assets/vuzix-494.jpg";
-import vuzixAlt1 from "@/assets/vuzix-alt1.jpg";
-import vuzixAlt2 from "@/assets/vuzix-alt2.jpg";
-import metaQuest from "@/assets/meta-quest-3.jpg";
-import metaQuestAlt1 from "@/assets/meta-quest-alt1.jpg";
-import metaQuestAlt2 from "@/assets/meta-quest-alt2.jpg";
-import visionPro from "@/assets/apple-vision-pro.jpg";
-import visionProAlt1 from "@/assets/vision-pro-alt1.jpg";
-import visionProAlt2 from "@/assets/vision-pro-alt2.jpg";
+import xrealUltra from "@/assets/xreal2.jpeg";
+import xrealUltraAlt1 from "@/assets/xreal3.jpeg";
+import xrealUltraAlt2 from "@/assets/xreal1.jpeg";
+import evenG1 from "@/assets/even-realities-g1.jpg";
+import evenG1Alt1 from "@/assets/even-realities-g1-3.webp";
+import evenG1Alt2 from "@/assets/even-realities-g1-2.jpg";
+import xrealBeam from "@/assets/Xreal-beam-pro1.png";
+import xrealBeamAlt1 from "@/assets/xreal-beam2.jpeg";
+import xrealBeamAlt2 from "@/assets/xreal-beam3.jpeg";
+import vuzix from "@/assets/Vuzix-Blade3.jpg";
+import vuzixAlt1 from "@/assets/Vuzix-Blade1.webp";
+import vuzixAlt2 from "@/assets/Vuzix-Blade2.webp";
+import metaQuest from "@/assets/meta-quest1.webp";
+import metaQuestAlt1 from "@/assets/meta-quest2.jpg";
+import metaQuestAlt2 from "@/assets/meta-quest3.webp";
+import visionPro from "@/assets/apple-vision1.png";
+import visionProAlt1 from "@/assets/apple-vision2.webp";
+import visionProAlt2 from "@/assets/apple-vision3.webp";
+import xrealVideo from "@/assets/xrealvid.mp4";
+import evenG1Video from "@/assets/evenrealitiesvid.mp4";
+import xrealBeamVideo from "@/assets/xrealbeamprovid.mp4";
+import vuzixVideo from "@/assets/vuzixvid.mp4";
+import metaQuestVideo from "@/assets/metaquest3vid.mp4";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,14 +53,19 @@ type Equipment = {
   video?: string;
 };
 
+const XREAL_ULTRA_VIDEO = xrealVideo;
+const EVEN_REALITIES_G1_VIDEO = evenG1Video;
+const XREAL_BEAM_PRO_VIDEO = xrealBeamVideo;
+const VUZIX_MODEL_VIDEO = vuzixVideo;
+const META_QUEST_VIDEO = metaQuestVideo;
 const APPLE_VIDEO = "https://www.apple.com/105/media/us/apple-vision-pro/2026/9251fc5e-bf57-4fae-8994-b06bbd3bb104/anim/foundation/large.mp4";
 
 const equipment: Equipment[] = [
-  { name: "Xreal Ultra 2", images: [xrealUltra, xrealUltraAlt1, xrealUltraAlt2], desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications.", video: "https://www.youtube.com/embed/ZIc1w1bHhd8" },
-  { name: "Even Realities G1", images: [evenG1, evenG1Alt1, evenG1Alt2], desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies.", video: "https://www.youtube.com/embed/tBH7mczkIJY" },
-  { name: "Xreal Beam Pro", images: [xrealBeam, xrealBeamAlt1, xrealBeamAlt2], desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller.", video: "https://www.youtube.com/embed/M0VTeUxgFag" },
-  { name: "Vuzix Model 494", images: [vuzix, vuzixAlt1, vuzixAlt2], desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection.", video: "https://www.youtube.com/embed/Nm7x-oJ-FrA" },
-  { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping.", video: "https://www.youtube.com/embed/5AKl_cEB26c" },
+  { name: "XReal Air 2 Ultra AR", images: [xrealUltra, xrealUltraAlt1, xrealUltraAlt2], desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications.", video: XREAL_ULTRA_VIDEO },
+  { name: "Even Realities G1", images: [evenG1, evenG1Alt1, evenG1Alt2], desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies.", video: EVEN_REALITIES_G1_VIDEO },
+  { name: "Xreal Beam Pro", images: [xrealBeam, xrealBeamAlt1, xrealBeamAlt2], desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller.", video: XREAL_BEAM_PRO_VIDEO },
+  { name: "Vuzix Model 494", images: [vuzix, vuzixAlt1, vuzixAlt2], desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection.", video: VUZIX_MODEL_VIDEO },
+  { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping.", video: META_QUEST_VIDEO },
   { name: "Apple Vision Pro", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
 ];
 
@@ -65,16 +74,15 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="relative z-50 bg-background border-b border-border">
-        <div className="relative w-full h-32 md:h-44 flex items-center justify-end pr-6 md:pr-10">
-          <a href="/" className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center shrink-0">
-            <img src={logo} alt="CONSERT Laboratory" className="h-48 md:h-64 w-auto" />
+      <header className="relative z-50 bg-background border-b border-border shadow-sm">
+        <div className="w-full h-24 md:h-32 flex items-center justify-between px-6 md:px-10">
+          <a href="/" className="flex items-center shrink-0">
+            <img src={logoAsset} alt="CONSERT Laboratory" className="h-24 md:h-40 w-auto object-contain" />
           </a>
-          <nav className="hidden lg:flex items-center gap-2">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
-              <a key={item} href="#" className="px-4 py-2 text-base font-medium text-foreground/80 hover:text-foreground inline-flex items-center gap-1 transition-colors">
+              <a key={item} href="#" className="text-sm md:text-base font-medium text-foreground/80 hover:text-primary transition-colors">
                 {item}
-                <ChevronDown className="h-4 w-4 opacity-60" />
               </a>
             ))}
           </nav>
@@ -160,7 +168,7 @@ function Index() {
       <footer className="bg-white border-t border-border text-foreground">
         <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-3">
           <div>
-            <img src={logo} alt="CONSERT" className="h-20 w-auto" />
+            <img src={logoAsset} alt="CONSERT" className="h-20 w-auto" />
             <p className="mt-6 text-sm text-muted-foreground max-w-xs">
               <span className="font-semibold"><span className="text-primary">CO</span>mputer Networks &amp; <span className="text-primary">SE</span>rvices <span className="text-primary">R</span>esearch labora<span className="text-primary">T</span>ory</span>
             </p>
@@ -200,7 +208,7 @@ function Index() {
               </li>
               <li>
                 <a href="https://x.com/consertlab" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                  <ChevronRight className="h-3.5 w-3.5 text-primary" /> X
+                  <ChevronRight className="h-3.5 w-3.5 text-primary" /> X 
                 </a>
               </li>
             </ul>
@@ -219,19 +227,36 @@ function Index() {
 
 function EquipmentCard({ item }: { item: Equipment }) {
   const [active, setActive] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    document.querySelectorAll("video").forEach((vid) => {
+      if (vid !== videoRef.current) {
+        vid.pause();
+      }
+    });
+    videoRef.current?.play().catch(() => {});
+  };
+  
+  const handleMouseLeave = () => {
+    videoRef.current?.pause();
+  };
+
   return (
     <article
       className="group h-full flex flex-col bg-card rounded-xl overflow-hidden border border-border transition-all duration-300 hover:-translate-y-1"
       style={{ boxShadow: "var(--shadow-card)" }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+      <div className="relative aspect-[4/3] overflow-hidden bg-transparent">
         <img
           src={item.images[active]}
           alt={item.name}
           loading="lazy"
           width={800}
           height={600}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
       <div className="p-6 flex flex-col flex-1">
@@ -253,7 +278,7 @@ function EquipmentCard({ item }: { item: Equipment }) {
                 src={src}
                 alt={`${item.name} view ${i + 1}`}
                 loading="lazy"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </button>
           ))}
@@ -271,12 +296,8 @@ function EquipmentCard({ item }: { item: Equipment }) {
               />
             ) : (
               <video
+                ref={videoRef}
                 src={item.video}
-                muted
-                loop
-                playsInline
-                autoPlay
-                controls
                 className="aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
               />
             )
