@@ -21,6 +21,7 @@ import metaQuestAlt2 from "@/assets/meta-quest3.webp";
 import visionPro from "@/assets/apple-vision1.png";
 import visionProAlt1 from "@/assets/apple-vision2.webp";
 import visionProAlt2 from "@/assets/apple-vision3.webp";
+import appleVideo from "@/assets/applevisionprovid.mp4";
 import xrealVideo from "@/assets/xrealvid.mp4";
 import evenG1Video from "@/assets/evenrealitiesvid.mp4";
 import xrealBeamVideo from "@/assets/xrealbeamprovid.mp4";
@@ -58,7 +59,7 @@ const EVEN_REALITIES_G1_VIDEO = evenG1Video;
 const XREAL_BEAM_PRO_VIDEO = xrealBeamVideo;
 const VUZIX_MODEL_VIDEO = vuzixVideo;
 const META_QUEST_VIDEO = metaQuestVideo;
-const APPLE_VIDEO = "https://www.apple.com/105/media/us/apple-vision-pro/2026/9251fc5e-bf57-4fae-8994-b06bbd3bb104/anim/foundation/large.mp4";
+const APPLE_VIDEO = appleVideo;
 
 const equipment: Equipment[] = [
   { name: "XReal Air 2 Ultra AR", images: [xrealUltra, xrealUltraAlt1, xrealUltraAlt2], desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications.", video: XREAL_ULTRA_VIDEO },
@@ -298,6 +299,13 @@ function EquipmentCard({ item }: { item: Equipment }) {
               <video
                 ref={videoRef}
                 src={item.video}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                onLoadedMetadata={(e) => {
+                  e.currentTarget.currentTime = 1; 
+                }}
                 className="aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
               />
             )
