@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link} from "@tanstack/react-router";
 import { useState, useRef } from "react";
 import { ChevronDown, ChevronRight, Search, Facebook, Linkedin, Twitter, MapPin, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/consert-logo.png";
@@ -45,7 +45,14 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const navItems = ["About", "RnD", "Initiatives", "People", "News & Events", "Opportunities"];
+const navItems = [
+  { name: "About", path: "/about" },
+  { name: "RnD", path: "/rnd" },
+  { name: "Initiatives", path: "/initiatives" },
+  { name: "People", path: "/people" },
+  { name: "News & Events", path: "/news" },
+  { name: "Opportunities", path: "/opportunities" },
+];
 
 type Equipment = {
   name: string;
@@ -72,6 +79,8 @@ const equipment: Equipment[] = [
 
 function Index() {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -80,13 +89,23 @@ function Index() {
           <a href="/" className="flex items-center shrink-0">
             <img src={logoAsset} alt="CONSERT Laboratory" className="h-24 md:h-40 w-auto object-contain" />
           </a>
+          
+          {/* ----- DESKTOP MENU ----- */}
           <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
-              <a key={item} href="#" className="text-sm md:text-base font-medium text-foreground/80 hover:text-primary transition-colors">
-                {item}
-              </a>
+              <Link
+                key={item.path}
+                to={item.path}
+                ref={(el) => {
+                  navRefs.current[`desktop-${item.name}`] = el;
+                }}
+                className="text-sm md:text-base font-medium text-foreground/80 hover:text-primary transition-colors"
+              >
+                {item.name}
+              </Link>
             ))}
           </nav>
+
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
@@ -97,19 +116,24 @@ function Index() {
             {mobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </div>
+
+        {/* ----- MOBILE MENU ----- */}
         {mobileOpen && (
           <nav className="lg:hidden border-t border-border bg-background">
             <ul className="px-6 py-4 flex flex-col">
               {navItems.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    ref={(el) => {
+                      navRefs.current[`mobile-${item.name}`] = el;
+                    }}
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-between py-3 text-base font-medium text-foreground/90 hover:text-primary border-b border-border/60 last:border-0 transition-colors"
                   >
-                    {item}
+                    {item.name}
                     <ChevronDown className="h-4 w-4 opacity-60" />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
