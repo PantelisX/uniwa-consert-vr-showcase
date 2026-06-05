@@ -36,30 +36,29 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.2 0.02 250);
+  --background: oklch(96% 0.005 250); /* Light Grey */
+  --foreground: oklch(20% 0.005 250); /* Dark Grey */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 250);
+  --card-foreground: oklch(20% 0.005 250); /* Dark Grey */
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 250);
-  /* Primary = bright amber accent */
-  --primary: oklch(0.83 0.17 85);
-  --primary-foreground: oklch(0.2 0.02 250);
-  --secondary: oklch(0.96 0.01 250);
-  --secondary-foreground: oklch(0.2 0.02 250);
-  --muted: oklch(0.97 0.005 250);
-  --muted-foreground: oklch(0.5 0.02 250);
-  --accent: oklch(0.83 0.17 85);
-  --accent-foreground: oklch(0.2 0.02 250);
-  --destructive: oklch(0.6 0.22 27);
+  --popover-foreground: oklch(20% 0.005 250); /* Dark Grey */
+  --primary: oklch(53% 0.15 240); /* Primary Blue */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(40% 0.15 240); /* Accent Blue */
+  --secondary-foreground: oklch(1 0 0); /* White */
+  --muted: oklch(97% 0.005 250);
+  --muted-foreground: oklch(50% 0.02 250);
+  --accent: oklch(53% 0.15 240); /* Primary Blue */
+  --accent-foreground: oklch(1 0 0); /* White */
+  --destructive: oklch(60% 0.22 27);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.01 250);
-  --input: oklch(0.92 0.01 250);
-  --ring: oklch(0.83 0.17 85);
-  --brand-blue: oklch(0.55 0.18 250);
-  --brand-dark: oklch(0.18 0.03 250);
-  --shadow-card: 0 10px 30px -12px oklch(0.2 0.05 250 / 0.18);
-  --shadow-card-hover: 0 20px 50px -16px oklch(0.2 0.05 250 / 0.28);
+  --border: oklch(80% 0.01 250); /* Lighter Grey */
+  --input: oklch(80% 0.01 250); /* Lighter Grey */
+  --ring: oklch(53% 0.15 240); /* Primary Blue */
+  --brand-blue: oklch(53% 0.15 240); /* Primary Blue */
+  --brand-dark: oklch(20% 0.005 250); /* Dark Grey */
+  --shadow-card: 0 10px 30px -12px oklch(20% 0.005 250 / 0.18);
+  --shadow-card-hover: 0 20px 50px -16px oklch(20% 0.005 250 / 0.28);
   --gradient-hero-overlay: linear-gradient(180deg, oklch(0.12 0.04 250 / 0.55), oklch(0.08 0.04 250 / 0.75));
 }
 

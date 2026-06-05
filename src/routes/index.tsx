@@ -147,7 +147,7 @@ function Index() {
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero-overlay)" }} />
         <div className="relative mx-auto max-w-5xl px-6 py-28 md:py-40 text-center text-white">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            We are a multi-disciplinary laboratory<br />committed to ICT Research &amp; Innovation
+            META4 Innovation Hub is an interdisciplinary effort among research teams of UniWA over research and innovation in the four pillars defining the new Internet era
           </h1>
           <p className="mt-10 text-2xl md:text-3xl font-semibold text-white">
             Check our work on
@@ -195,9 +195,9 @@ function Index() {
           <div>
             <img src={logoAsset} alt="CONSERT" className="h-20 w-auto" />
             <p className="mt-6 text-sm text-muted-foreground max-w-xs">
-              <span className="font-semibold"><span className="text-primary">CO</span>mputer Networks &amp; <span className="text-primary">SE</span>rvices <span className="text-primary">R</span>esearch labora<span className="text-primary">T</span>ory</span>
+              <span className="font-semibold">I<span className="text-primary">M</span>mersion Int<span className="text-primary">E</span>lligence <span className="text-primary">T</span>rust and Decentr<span className="text-primary">A</span>lization</span>
             </p>
-            <p className="mt-6 text-sm text-muted-foreground">© CoNSeRT {new Date().getFullYear()}</p>
+            <p className="mt-6 text-sm text-muted-foreground">© Meta4 {new Date().getFullYear()}</p>
           </div>
           <div>
             <div className="h-0.5 w-10 bg-primary mb-3" />
@@ -295,7 +295,7 @@ function EquipmentCard({ item }: { item: Equipment }) {
               onClick={() => setActive(i)}
               aria-label={`Show ${item.name} view ${i + 1}`}
               aria-pressed={active === i}
-              className={`block aspect-video rounded-md overflow-hidden bg-secondary border transition-colors ${
+              className={`block aspect-video rounded-md overflow-hidden bg-card border transition-colors ${
                 active === i ? "border-primary ring-2 ring-primary/40" : "border-border hover:border-primary"
               }`}
             >
