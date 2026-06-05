@@ -1,7 +1,7 @@
 import { createFileRoute, Link} from "@tanstack/react-router";
 import { useState, useRef } from "react";
 import { ChevronDown, ChevronRight, Search, Facebook, Linkedin, Twitter, MapPin, Menu, X } from "lucide-react";
-import logoAsset from "@/assets/consert-logo.png";
+import logoAsset from "@/assets/META4.png";
 import heroBg from "@/assets/hero-network.jpg";
 import xrealUltra from "@/assets/xreal2.jpeg";
 import xrealUltraAlt1 from "@/assets/xreal3.jpeg";
