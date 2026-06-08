@@ -62,6 +62,9 @@ export const Route = createFileRoute("/")({
 
 const navItems = [
   { name: "Projects", path: "/projects" },
+  { name: "Publications", path: "/publications" },
+  { name: "Team", path: "/team" },
+  { name: "Contact", path: "/contact" },
 ];
 
 type Equipment = {

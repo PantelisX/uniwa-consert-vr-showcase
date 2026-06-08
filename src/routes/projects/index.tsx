@@ -10,7 +10,7 @@ import {
 import logoAsset from "@/assets/META4.png";
 import Project1 from "@/assets/project1.png";
 
-export const Route = createFileRoute('/projects')({
+export const Route = createFileRoute('/projects/')({
     head: () => ({
     meta: [
       { title: "Projects | META4" },
