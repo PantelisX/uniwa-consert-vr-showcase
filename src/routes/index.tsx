@@ -370,16 +370,14 @@ function EquipmentCard({ item }: { item: Equipment }) {
   const [active, setActive] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // We use a handler to play the video only on hover for performance,
-  // but pre-loading is handled by the "preload" attribute in the tag itself.
   const handleMouseEnter = () => {
-    // Pause other videos
+
     document.querySelectorAll("video").forEach((vid) => {
       if (vid !== videoRef.current) {
         vid.pause();
       }
     });
-    // Play current
+
     videoRef.current?.play().catch(() => {});
   };
   
@@ -398,7 +396,7 @@ function EquipmentCard({ item }: { item: Equipment }) {
         <img
           src={item.images[active]}
           alt={item.name}
-          loading="eager" // Changed from lazy to eager for primary images
+          loading="eager"
           width={800}
           height={600}
           className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
