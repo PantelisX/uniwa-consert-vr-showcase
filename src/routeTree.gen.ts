@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
-import { Route as ProjectsAusculationTrainingErLabRouteImport } from './routes/projects/ausculation-trainingEr-lab'
+import { Route as ProjectsAuscultationTrainingErLabRouteImport } from './routes/projects/auscultation-trainingEr-lab'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +23,40 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   path: '/projects/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsAusculationTrainingErLabRoute =
-  ProjectsAusculationTrainingErLabRouteImport.update({
-    id: '/projects/ausculation-trainingEr-lab',
-    path: '/projects/ausculation-trainingEr-lab',
+const ProjectsAuscultationTrainingErLabRoute =
+  ProjectsAuscultationTrainingErLabRouteImport.update({
+    id: '/projects/auscultation-trainingEr-lab',
+    path: '/projects/auscultation-trainingEr-lab',
     getParentRoute: () => rootRouteImport,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/projects/ausculation-trainingEr-lab': typeof ProjectsAusculationTrainingErLabRoute
+  '/projects/auscultation-trainingEr-lab': typeof ProjectsAuscultationTrainingErLabRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/projects/ausculation-trainingEr-lab': typeof ProjectsAusculationTrainingErLabRoute
+  '/projects/auscultation-trainingEr-lab': typeof ProjectsAuscultationTrainingErLabRoute
   '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/projects/ausculation-trainingEr-lab': typeof ProjectsAusculationTrainingErLabRoute
+  '/projects/auscultation-trainingEr-lab': typeof ProjectsAuscultationTrainingErLabRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects/ausculation-trainingEr-lab' | '/projects/'
+  fullPaths: '/' | '/projects/auscultation-trainingEr-lab' | '/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects/ausculation-trainingEr-lab' | '/projects'
-  id: '__root__' | '/' | '/projects/ausculation-trainingEr-lab' | '/projects/'
+  to: '/' | '/projects/auscultation-trainingEr-lab' | '/projects'
+  id: '__root__' | '/' | '/projects/auscultation-trainingEr-lab' | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProjectsAusculationTrainingErLabRoute: typeof ProjectsAusculationTrainingErLabRoute
+  ProjectsAuscultationTrainingErLabRoute: typeof ProjectsAuscultationTrainingErLabRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
@@ -76,11 +76,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/ausculation-trainingEr-lab': {
-      id: '/projects/ausculation-trainingEr-lab'
-      path: '/projects/ausculation-trainingEr-lab'
-      fullPath: '/projects/ausculation-trainingEr-lab'
-      preLoaderRoute: typeof ProjectsAusculationTrainingErLabRouteImport
+    '/projects/auscultation-trainingEr-lab': {
+      id: '/projects/auscultation-trainingEr-lab'
+      path: '/projects/auscultation-trainingEr-lab'
+      fullPath: '/projects/auscultation-trainingEr-lab'
+      preLoaderRoute: typeof ProjectsAuscultationTrainingErLabRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +88,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProjectsAusculationTrainingErLabRoute: ProjectsAusculationTrainingErLabRoute,
+  ProjectsAuscultationTrainingErLabRoute:
+    ProjectsAuscultationTrainingErLabRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
