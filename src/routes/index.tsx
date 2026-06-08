@@ -253,12 +253,12 @@ function Index() {
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/company/consert-uniwa/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://gr.linkedin.com/in/consert-uniwa-0a747b200" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <ChevronRight className="h-3.5 w-3.5 text-primary" /> LinkedIn
                 </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/@CoNSeRTUNIWA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.youtube.com/channel/UCQzf34x36_aISpcy9PIF2ZA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                   <ChevronRight className="h-3.5 w-3.5 text-primary" /> YouTube
                 </a>
               </li>
