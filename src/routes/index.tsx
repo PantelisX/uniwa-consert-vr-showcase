@@ -87,13 +87,13 @@ const APPLE_VIDEO = appleVideo;
 
 const equipment: Equipment[] = [
   { name: "VIVE Focus Vision", images: [vive1, vive2, vive3], desc: "The next leap in extended reality.A hybrid standalone PC VR headset with full-body tracker support, base station-free. Enter VIVE Focus Vision — our most immersive spatial computing experience yet.", video: viveVideo },
+  { name: "Apple Vision Pro", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
+  { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping.", video: META_QUEST_VIDEO },
+  { name: "Pimax", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
   { name: "XReal Air 2 Ultra AR", images: [xrealUltra, xrealUltraAlt1, xrealUltraAlt2], desc: "Next-generation AR glasses delivering an expansive 152-inch virtual display with spatial computing capabilities for immersive research applications.", video: XREAL_ULTRA_VIDEO },
   { name: "Even Realities G1", images: [evenG1, evenG1Alt1, evenG1Alt2], desc: "Lightweight everyday smart glasses with seamless HUD integration — ideal for ambient computing and contextual data studies.", video: EVEN_REALITIES_G1_VIDEO },
   { name: "Xreal Beam Pro", images: [xrealBeam, xrealBeamAlt1, xrealBeamAlt2], desc: "Dedicated spatial computing companion that streams 3D content to AR glasses and serves as a tetherless research controller.", video: XREAL_BEAM_PRO_VIDEO },
   { name: "Vuzix Model 494", images: [vuzix, vuzixAlt1, vuzixAlt2], desc: "Enterprise-grade smart glasses engineered for industrial AR workflows, remote assistance and field data collection.", video: VUZIX_MODEL_VIDEO },
-  { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping.", video: META_QUEST_VIDEO },
-  { name: "Apple Vision Pro", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
-  { name: "Apple Vision Pro", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
 ];
 
 function Index() {

@@ -20,7 +20,10 @@ export const Route = createFileRoute('/projects/')({
 })
 
 const navItems = [
-  { name: "Projects", path: "/projects" }
+  { name: "Projects", path: "/projects" },
+  { name: "Publications", path: "/publications" },
+  { name: "Team", path: "/team" },
+  { name: "Contact", path: "/contact" },
 ];
 
 const projectsData = [
@@ -113,7 +116,7 @@ function ProjectsPage() {
             {projectsData.map((project, index) => (
               <Link
                 key={project.id}
-                to={`/projects/${project.id}`}
+                to={`/projects/${project.id}` as unknown as string}
                 className="group flex flex-col lg:flex-row items-start lg:items-center py-8 md:py-12 border-b border-border transition-colors duration-300 cursor-pointer gap-6 lg:gap-10"
               >
 
