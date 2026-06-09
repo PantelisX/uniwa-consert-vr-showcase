@@ -20,7 +20,18 @@ export const Route = createFileRoute('/projects/auscultation-trainingEr-lab')({
 });
 
 const navItems = [
-  { name: "Projects", path: "/projects/" }
+  { name: "Projects", path: "/projects" },
+  { name: "Publications", path: "/publications" },
+  { 
+    name: "Team", 
+    path: "/team",
+    subItems: [
+      { name: "Faculty", path: "/team/faculty" },
+      { name: "Researchers", path: "/team/researchers" },
+      { name: "Students", path: "/team/students" },
+    ]
+  },
+  { name: "Contact", path: "/contact" },
 ];
 
 function ProjectPage() {
@@ -36,25 +47,49 @@ function ProjectPage() {
           </Link>
           
           {/* ----- DESKTOP MENU ----- */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="text-sm md:text-base font-medium text-foreground/80 hover:text-primary transition-colors [&.active]:text-primary [&.active]:font-bold"
-              >
-                {item.name}
-              </Link>
+              <div key={item.path} className="relative group">
+                {item.subItems ? (
+                   <>
+                     <span className="flex items-center gap-1.5 py-4 text-sm md:text-base font-medium text-foreground/80 group-hover:text-primary cursor-default select-none transition-colors">
+                        {item.name}
+                        <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                      </span>
+                      <div className="absolute left-1/2 top-[90%] -translate-x-1/2 pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
+                        <div className="w-48 bg-background/95 backdrop-blur-md border border-border/60 rounded-xl shadow-xl p-2 flex flex-col gap-1">
+                          {item.subItems.map((subItem) => (
+                            <Link
+                              key={subItem.path}
+                              to={subItem.path}
+                              className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="py-4 text-sm md:text-base font-medium text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
             ))}
           </nav>
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen((o) => !o)}
-            className="lg:hidden inline-flex items-center justify-center h-12 w-12 rounded-md text-foreground hover:bg-secondary transition-colors"
-          >
-            {mobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-          </button>
+            <button
+              type="button"
+              onClick={() => setMobileOpen((o) => !o)}
+              className="lg:hidden inline-flex items-center justify-center h-12 w-12 rounded-md text-foreground hover:bg-secondary transition-colors"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+            </button>
         </div>
 
         {/* ----- MOBILE MENU ----- */}
@@ -63,19 +98,41 @@ function ProjectPage() {
             <ul className="px-6 py-4 flex flex-col">
               {navItems.map((item) => (
                 <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between py-3 text-base font-medium text-foreground/90 hover:text-primary border-b border-border/60 last:border-0"
-                  >
-                    {item.name}
-                    <ChevronDown className="h-4 w-4 opacity-60" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
+                  {item.subItems ? (
+                    <div className="flex flex-col py-3 border-b border-border/60 last:border-0">
+                      <div className="flex items-center justify-between text-base font-medium text-foreground/90 select-none">
+                        <span className="flex-1">{item.name}</span>
+                        <ChevronDown className="h-4 w-4 opacity-60" />
+                      </div>
+                        <ul className="mt-3 ml-2 flex flex-col gap-1 border-l-2 border-border pl-4">
+                          {item.subItems.map((subItem) => (
+                            <li key={subItem.path}>
+                              <Link
+                                to={subItem.path}
+                                onClick={() => setMobileOpen(false)}
+                                className="block py-2 text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+                              >
+                                {subItem.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        onClick={() => setMobileOpen(false)}
+                          className="flex items-center justify-between py-3 text-base font-medium text-foreground/90 hover:text-primary border-b border-border/60 last:border-0 transition-colors"
+                      >
+                        {item.name}
+                        <ChevronRight className="h-4 w-4 opacity-60" />
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
       </header>
 
       {/* Main Content - Project Details */}

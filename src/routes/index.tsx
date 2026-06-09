@@ -67,7 +67,15 @@ export const Route = createFileRoute("/")({
 const navItems = [
   { name: "Projects", path: "/projects" },
   { name: "Publications", path: "/publications" },
-  { name: "Team", path: "/team" },
+  { 
+    name: "Team", 
+    path: "/team",
+    subItems: [
+      { name: "Faculty", path: "/team/faculty" },
+      { name: "Researchers", path: "/team/researchers" },
+      { name: "Students", path: "/team/students" },
+    ]
+  },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -86,7 +94,7 @@ const META_QUEST_VIDEO = metaQuestVideo;
 const APPLE_VIDEO = appleVideo;
 
 const equipment: Equipment[] = [
-  { name: "VIVE Focus Vision", images: [vive1, vive2, vive3], desc: "The next leap in extended reality.A hybrid standalone PC VR headset with full-body tracker support, base station-free. Enter VIVE Focus Vision — our most immersive spatial computing experience yet.", video: viveVideo },
+  { name: "VIVE Focus Vision", images: [vive1, vive2, vive3], desc: "The next leap in extended reality. A hybrid standalone PC VR headset with full-body tracker support, base station-free. Enter VIVE Focus Vision — our most immersive spatial computing experience yet.", video: viveVideo },
   { name: "Apple Vision Pro", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
   { name: "Meta Quest 3", images: [metaQuest, metaQuestAlt1, metaQuestAlt2], desc: "Standalone mixed-reality headset with full-color passthrough, enabling VR experimentation and interactive prototyping.", video: META_QUEST_VIDEO },
   { name: "Pimax", images: [visionPro, visionProAlt1, visionProAlt2], desc: "Premium spatial computer with ultra-high-resolution micro-OLED displays and eye-tracking — a benchmark for next-gen XR research.", video: APPLE_VIDEO },
@@ -110,18 +118,38 @@ function Index() {
           </a>
           
           {/* ----- DESKTOP MENU ----- */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                ref={(el) => {
-                  navRefs.current[`desktop-${item.name}`] = el;
-                }}
-                className="text-sm md:text-base font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {item.name}
-              </Link>
+              <div key={item.path} className="relative group">
+                {item.subItems ? (
+                  <>
+                    <span className="flex items-center gap-1.5 py-4 text-sm md:text-base font-medium text-foreground/80 group-hover:text-primary cursor-default select-none transition-colors">
+                      {item.name}
+                      <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                    </span>
+                    <div className="absolute left-1/2 top-[90%] -translate-x-1/2 pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
+                      <div className="w-48 bg-background/95 backdrop-blur-md border border-border/60 rounded-xl shadow-xl p-2 flex flex-col gap-1">
+                        {item.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.path}
+                            to={subItem.path}
+                            className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className="py-4 text-sm md:text-base font-medium text-foreground/80 hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
             ))}
           </nav>
 
@@ -142,17 +170,37 @@ function Index() {
             <ul className="px-6 py-4 flex flex-col">
               {navItems.map((item) => (
                 <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    ref={(el) => {
-                      navRefs.current[`mobile-${item.name}`] = el;
-                    }}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between py-3 text-base font-medium text-foreground/90 hover:text-primary border-b border-border/60 last:border-0 transition-colors"
-                  >
-                    {item.name}
-                    <ChevronDown className="h-4 w-4 opacity-60" />
-                  </Link>
+                  {item.subItems ? (
+                    <div className="flex flex-col py-3 border-b border-border/60 last:border-0">
+                      {/* Αφαίρεση του Link και στο mobile για το "Team" */}
+                      <div className="flex items-center justify-between text-base font-medium text-foreground/90 select-none">
+                        <span className="flex-1">{item.name}</span>
+                        <ChevronDown className="h-4 w-4 opacity-60" />
+                      </div>
+                      <ul className="mt-3 ml-2 flex flex-col gap-1 border-l-2 border-border pl-4">
+                        {item.subItems.map((subItem) => (
+                          <li key={subItem.path}>
+                            <Link
+                              to={subItem.path}
+                              onClick={() => setMobileOpen(false)}
+                              className="block py-2 text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+                            >
+                              {subItem.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center justify-between py-3 text-base font-medium text-foreground/90 hover:text-primary border-b border-border/60 last:border-0 transition-colors"
+                    >
+                      {item.name}
+                      <ChevronRight className="h-4 w-4 opacity-60" />
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -371,13 +419,11 @@ function EquipmentCard({ item }: { item: Equipment }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleMouseEnter = () => {
-
     document.querySelectorAll("video").forEach((vid) => {
       if (vid !== videoRef.current) {
         vid.pause();
       }
     });
-
     videoRef.current?.play().catch(() => {});
   };
   
@@ -406,7 +452,6 @@ function EquipmentCard({ item }: { item: Equipment }) {
         <h3 className="text-xl font-bold text-foreground min-h-[2rem]">{item.name}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground min-h-[5rem]">{item.desc}</p>
         
-        {/* ... (Keep your image selection grid here) ... */}
         <div className="mt-5 grid grid-cols-3 gap-2">
           {item.images.map((src, i) => (
             <button
@@ -438,9 +483,8 @@ function EquipmentCard({ item }: { item: Equipment }) {
                 muted
                 loop
                 playsInline
-                preload="auto" // <-- KEY CHANGE: 'auto' forces browser to buffer immediately
+                preload="auto"
                 className="aspect-video w-full rounded-md overflow-hidden bg-secondary border border-border object-cover"
-                // Adding a poster image can also hide the blue/black frame
                 poster={item.images[0]} 
               />
             )

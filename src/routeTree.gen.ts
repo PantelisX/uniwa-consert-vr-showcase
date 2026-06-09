@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
+import { Route as TeamStudentsRouteImport } from './routes/team/students'
+import { Route as TeamResearchersRouteImport } from './routes/team/researchers'
+import { Route as TeamFacultyRouteImport } from './routes/team/faculty'
 import { Route as ProjectsAuscultationTrainingErLabRouteImport } from './routes/projects/auscultation-trainingEr-lab'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +26,21 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   path: '/projects/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeamStudentsRoute = TeamStudentsRouteImport.update({
+  id: '/team/students',
+  path: '/team/students',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamResearchersRoute = TeamResearchersRouteImport.update({
+  id: '/team/researchers',
+  path: '/team/researchers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamFacultyRoute = TeamFacultyRouteImport.update({
+  id: '/team/faculty',
+  path: '/team/faculty',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsAuscultationTrainingErLabRoute =
   ProjectsAuscultationTrainingErLabRouteImport.update({
     id: '/projects/auscultation-trainingEr-lab',
@@ -33,30 +51,61 @@ const ProjectsAuscultationTrainingErLabRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/projects/auscultation-trainingEr-lab': typeof ProjectsAuscultationTrainingErLabRoute
+  '/team/faculty': typeof TeamFacultyRoute
+  '/team/researchers': typeof TeamResearchersRoute
+  '/team/students': typeof TeamStudentsRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/projects/auscultation-trainingEr-lab': typeof ProjectsAuscultationTrainingErLabRoute
+  '/team/faculty': typeof TeamFacultyRoute
+  '/team/researchers': typeof TeamResearchersRoute
+  '/team/students': typeof TeamStudentsRoute
   '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/projects/auscultation-trainingEr-lab': typeof ProjectsAuscultationTrainingErLabRoute
+  '/team/faculty': typeof TeamFacultyRoute
+  '/team/researchers': typeof TeamResearchersRoute
+  '/team/students': typeof TeamStudentsRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects/auscultation-trainingEr-lab' | '/projects/'
+  fullPaths:
+    | '/'
+    | '/projects/auscultation-trainingEr-lab'
+    | '/team/faculty'
+    | '/team/researchers'
+    | '/team/students'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects/auscultation-trainingEr-lab' | '/projects'
-  id: '__root__' | '/' | '/projects/auscultation-trainingEr-lab' | '/projects/'
+  to:
+    | '/'
+    | '/projects/auscultation-trainingEr-lab'
+    | '/team/faculty'
+    | '/team/researchers'
+    | '/team/students'
+    | '/projects'
+  id:
+    | '__root__'
+    | '/'
+    | '/projects/auscultation-trainingEr-lab'
+    | '/team/faculty'
+    | '/team/researchers'
+    | '/team/students'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProjectsAuscultationTrainingErLabRoute: typeof ProjectsAuscultationTrainingErLabRoute
+  TeamFacultyRoute: typeof TeamFacultyRoute
+  TeamResearchersRoute: typeof TeamResearchersRoute
+  TeamStudentsRoute: typeof TeamStudentsRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
@@ -76,6 +125,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/team/students': {
+      id: '/team/students'
+      path: '/team/students'
+      fullPath: '/team/students'
+      preLoaderRoute: typeof TeamStudentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/researchers': {
+      id: '/team/researchers'
+      path: '/team/researchers'
+      fullPath: '/team/researchers'
+      preLoaderRoute: typeof TeamResearchersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/faculty': {
+      id: '/team/faculty'
+      path: '/team/faculty'
+      fullPath: '/team/faculty'
+      preLoaderRoute: typeof TeamFacultyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/auscultation-trainingEr-lab': {
       id: '/projects/auscultation-trainingEr-lab'
       path: '/projects/auscultation-trainingEr-lab'
@@ -90,6 +160,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProjectsAuscultationTrainingErLabRoute:
     ProjectsAuscultationTrainingErLabRoute,
+  TeamFacultyRoute: TeamFacultyRoute,
+  TeamResearchersRoute: TeamResearchersRoute,
+  TeamStudentsRoute: TeamStudentsRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
